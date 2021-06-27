@@ -10,8 +10,8 @@ const Evento = use("App/Models/Evento");
 
 class ApurarResultado extends Task {
   static get schedule() {
-    // return "00 23 * * *";
-    return "*/1 * * * * *";
+    return "00 23 * * *";
+    // return "*/1 * * * * *";
   }
 
   async handle() {
@@ -83,15 +83,13 @@ class ApurarResultado extends Task {
       })
       .value();
 
-      console.log(vencedores);
-
       const [ item ] = vencedores;
       const data = {
         dataEvento: moment(item.eventoData).format("DD/MM/YYYY"),
         vencedores
       };
 
-      return;
+
       await Mail.send("emails.vencedores", data, message => {
         message.from("thiago@corelab.com.br");
         message.to("thiago.zampieri@gmail.com");
