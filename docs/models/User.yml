@@ -1,0 +1,12 @@
+definitions:
+  User:
+    type: object
+
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Id unico do usuario
+
+      username:
+        type: string

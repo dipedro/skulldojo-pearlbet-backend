@@ -1,0 +1,10 @@
+@layout('master')
+
+@section('content')
+  <h3>Apuração da mentoria no dia {{ dataEvento }}.</h3>
+  <ul>
+    @each(vencedor in vencedores)
+      <li>Aluno: {{ vencedor.aluno.nome }} - Mentor: {{ vencedor.mentor.nome }}</li>
+    @endeach
+  </ul>
+@endsection
